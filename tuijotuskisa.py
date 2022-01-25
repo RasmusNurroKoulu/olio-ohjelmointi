@@ -3,8 +3,8 @@ import time
 
 
 class Peikko:
-    """Luokka, joka kuvaa Peikon.
 
+    """Luokka, joka kuvaa Peikon.
     :ivar nimi: peikon nimi, arvotaan
     :type nimi: str
     :ivar rohkeus: peikon rohkeus, arvotaan
@@ -58,6 +58,21 @@ class Peikko:
 
 
 ### Kirjoita luokka Sankari tähän.
+class Sankari:
+    ARVOSATUNAINEN = ["woo", "jee", "wohoo", "mennään", "jippii", "Yoooo"]
+    def __init__(self, nimi):
+        self.nimi = nimi
+        self.rohkeus = random.randint(5, 10)
+        self.katseen_voima = random.randint(1, 3)
+        self.arvo_hurraus = random.choice(ARVOSATUNAINEN)
+
+    def arvo_hurraus(self):
+        """Palauttaa satunnaisen hurraushuudahduksen.
+
+        :return: hurraava huudahdus
+        :rtype: str
+        """
+        return random.choice(ARVOSATUNAINEN)
 
 
 def hurraa(olio):
