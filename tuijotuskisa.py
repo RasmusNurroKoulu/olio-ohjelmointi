@@ -64,14 +64,9 @@ class Sankari:
         self.nimi = nimi
         self.rohkeus = random.randint(5, 10)
         self.katseen_voima = random.randint(1, 3)
-        self.arvo_hurraus = random.choice(ARVOSATUNAINEN)
 
     def arvo_hurraus(self):
-        """Palauttaa satunnaisen hurraushuudahduksen.
-
-        :return: hurraava huudahdus
-        :rtype: str
-        """
+        ARVOSATUNAINEN = ["woo", "jee", "wohoo", "mennään", "jippii", "Yoooo"]
         return random.choice(ARVOSATUNAINEN)
 
 
