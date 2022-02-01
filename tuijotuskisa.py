@@ -65,8 +65,7 @@ class Sankari:
         self.rohkeus = random.randint(5, 10)
         self.katseen_voima = random.randint(1, 3)
 
-    def arvo_hurraus(self):
-        ARVOSATUNAINEN = ["woo", "jee", "wohoo", "mennään", "jippii", "Yoooo"]
+    def arvo_hurraus(ARVOSATUNAINEN):
         return random.choice(ARVOSATUNAINEN)
 
 
