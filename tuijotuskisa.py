@@ -59,7 +59,6 @@ class Peikko:
 
 ### Kirjoita luokka Sankari tähän.
 class Sankari:
-    ARVOSATUNAINEN = ["woo", "jee", "wohoo", "mennään", "jippii", "Yoooo"]
     def __init__(self, nimi):
         self.nimi = nimi
         self.rohkeus = random.randint(5, 10)
@@ -67,7 +66,7 @@ class Sankari:
 
     def arvo_hurraus(self):
         ARVOSATUNAINEN = ["woo", "jee", "wohoo", "mennään", "jippii", "Yoooo"]
-        return random.choice(ARVOSATUNAINEN)
+        return self.random.choice(ARVOSATUNAINEN)
 
 
 def hurraa(olio):
