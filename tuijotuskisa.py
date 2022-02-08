@@ -2,9 +2,9 @@ import random
 import time
 
 class Olento:
-     def __init__(self):
-        self.rohkeus = random.randint(4, 8)
-        self.katseen_voima = random.randint(1, 3)
+     def __init__(self, rohkeus1 = 4, rohkeus2 = 8, katseen_voima1 = 1, katseen_voima2 = 4):
+        self.rohkeus = random.randint(rohkeus1, rohkeus2)
+        self.katseen_voima = random.randint(katseen_voima1, katseen_voima2)
 
 class Peikko(Olento):
 
@@ -23,9 +23,10 @@ class Peikko(Olento):
     NIMITAVUT = ("Ur", "Gar", "Grah", "Gur", "Kan", "Kazah", "Bar", "Bazh", "Ragh", "Rudz")
     RIEMUTAVUT = ("Agh", "Ugh", "Ourgh", "Drar", "Brar", "Dza", "Gra", "Gur", "Rah", "Urgh", "Ra")
 
-    def __init__(self):
+    def __init__(self, rohkeus1 = 4, rohkeus2 = 8, katseen_voima1 = 1, katseen_voima2 = 4):
         """Konstruktori."""
         self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
+        super().__init__(rohkeus1, rohkeus2, katseen_voima1, katseen_voima2)
 
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
         """Muodostaa satunnaisen tekstin annetuista tavuista.
@@ -58,11 +59,18 @@ class Peikko(Olento):
         """
         return self._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
 
+# class Vuorenpeikko(Peikko):
+#  NIMITAVUT = ("Puh", "Pah", "Pew", "Pow", "Por", "Pot", "Pos", "Pob", "Pub", "Pab")
+
+# class Luolapeikko(Peikko):
+#  NIMITAVUT = ("Wuh", "Wah", "Weh", "Woh", "Wor", "Wot", "Wos", "Wob", "Wub", "Wab")
 
 ### Kirjoita luokka Sankari tähän.
 class Sankari(Olento):
-    def __init__(self, nimi):
+    def __init__(self, nimi, rohkeus1 = 5, rohkeus2 = 9, katseen_voima1 = 2, katseen_voima = 5):
         self.nimi = nimi
+        super().__init__(rohkeus1, rohkeus2, katseen_voima1, katseen_voima)
+
 
     def arvo_hurraus(self):
         ARVOSATUNAINEN = ["woo", "jee", "wohoo", "mennään", "jippii", "Yoooo"]
