@@ -2,6 +2,9 @@ import random
 import time
 
 class Olento:
+     def __init__(self):
+        self.rohkeus = random.randint(4, 8)
+        self.katseen_voima = random.randint(1, 3)
 
 class Peikko(Olento):
 
@@ -23,8 +26,6 @@ class Peikko(Olento):
     def __init__(self):
         """Konstruktori."""
         self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
-        self.rohkeus = random.randint(4, 8)
-        self.katseen_voima = random.randint(2, 4)
 
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
         """Muodostaa satunnaisen tekstin annetuista tavuista.
@@ -62,8 +63,6 @@ class Peikko(Olento):
 class Sankari(Olento):
     def __init__(self, nimi):
         self.nimi = nimi
-        self.rohkeus = random.randint(5, 10)
-        self.katseen_voima = random.randint(1, 3)
 
     def arvo_hurraus(self):
         ARVOSATUNAINEN = ["woo", "jee", "wohoo", "mennään", "jippii", "Yoooo"]
