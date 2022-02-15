@@ -14,6 +14,7 @@ class Olento:
         self.rohkeus = random.randint(pohjarohkeus, pohjarohkeus + 3)
         self.katseen_voima = random.randint(pohjakatse, pohjakatse + 3)
      def arvo_hurraus(self):
+        """Luokka joka laittaa eteenpäin"""
         pass
 
 class Peikko(Olento):
