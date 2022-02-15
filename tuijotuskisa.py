@@ -59,12 +59,13 @@ class Peikko:
 
 ### Kirjoita luokka Sankari tähän.
 class Sankari:
-    :ivar nimi: sankarin nimi, arvotaan
+    """ :ivar nimi: sankarin nimi, arvotaan
     :type nimi: str
     :ivar rohkeus: sankarin rohkeus, arvotaan
     :type rohkeus: int
     :ivar katseen_voima: sankarin katseen voimakkuus, arvotaan
     :type katseen_voima: int
+    """
     def __init__(self, nimi):
         self.nimi = nimi
         self.rohkeus = random.randint(5, 10)
