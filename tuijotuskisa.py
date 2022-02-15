@@ -2,9 +2,18 @@ import random
 import time
 
 class Olento:
-     def __init__(self, rohkeus1 = 4, rohkeus2 = 8, katseen_voima1 = 1, katseen_voima2 = 4):
-        self.rohkeus = random.randint(rohkeus1, rohkeus2)
-        self.katseen_voima = random.randint(katseen_voima1, katseen_voima2)
+     def __init__(self, nimi, pohjarohkeus=1, pohjakatse=1):
+        """Perintä luokka, joka toimii pohjana
+        :ivar nimi: nimi annetaan
+        :type nimi: str
+        :ivar rouhkeus: olentojen rohkeus, joka arvotaan
+        :type rohkeus: int
+        :ivar katseen_voima: olenojen katseen voimakkuus, joka arvotaan"""
+        self.nimi = nimi
+        self.rohkeus = random.randint(pohjarohkeus, pohjarohkeus + 3)
+        self.katseen_voima = random.randint(pohjakatse, pohjakatse + 3)
+     def arvo_hurraus(self):
+        pass
 
 class Peikko(Olento):
 
@@ -23,10 +32,10 @@ class Peikko(Olento):
     NIMITAVUT = ("Ur", "Gar", "Grah", "Gur", "Kan", "Kazah", "Bar", "Bazh", "Ragh", "Rudz")
     RIEMUTAVUT = ("Agh", "Ugh", "Ourgh", "Drar", "Brar", "Dza", "Gra", "Gur", "Rah", "Urgh", "Ra")
 
-    def __init__(self, rohkeus1 = 4, rohkeus2 = 8, katseen_voima1 = 1, katseen_voima2 = 4):
+    def __init__(self, pohjarohkeus = 1, pohjakatse = 2):
         """Konstruktori."""
         self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
-        super().__init__(rohkeus1, rohkeus2, katseen_voima1, katseen_voima2)
+        super().__init__(pohjarohkeus, pohjakatse)
 
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
         """Muodostaa satunnaisen tekstin annetuista tavuista.
@@ -62,20 +71,26 @@ class Peikko(Olento):
 class Vuorenpeikko(Peikko):
     NIMITAVUT2 = ("Puh", "Pah", "Pew", "Pow", "Por", "Pot", "Pos", "Pob", "Pub", "Pab")
     RIEMUTAVUT2 = ("Argh", "Orgh", "Urgh", "Ergh", "Irgh", "Arg", "Org", "Urg", "Erg", "Irg", "Rn")
-    def __init__(self, nimitavut = NIMITAVUT2, riemutavut = RIEMUTAVUT2, rohkeus1 = 5, rohkeus2 = 9, katseen_voima1 = 2, katseen_voima = 5):
-        super().__init__(nimitavut, riemutavut, rohkeus1, rohkeus2, katseen_voima1, katseen_voima)
+    def __init__(self, nimitavut = NIMITAVUT2, riemutavut = RIEMUTAVUT2, pohjarohkeus = 1, pohjakatse = 4):
+        super().__init__(nimitavut, riemutavut, pohjarohkeus, pohjakatse)
 
 class Luolapeikko(Peikko):
     NIMITAVUT1 = ("Wuh", "Wah", "Weh", "Woh", "Wor", "Wot", "Wos", "Wob", "Wub", "Wab")
     RIEMUTAVUT1 = ("Arrgh", "Orrgh", "Urrgh", "Errgh", "Irrgh", "Arrg", "Orrg", "Urrg", "Errg", "Irrg", "Rrn")
-    def __init__(self, nimitavut = NIMITAVUT1, riemutavut = RIEMUTAVUT1, rohkeus1 = 5, rohkeus2 = 9, katseen_voima1 = 2, katseen_voima = 5):
-        super().__init__(nimitavut, riemutavut, rohkeus1, rohkeus2, katseen_voima1, katseen_voima)
+    def __init__(self, nimitavut, riemutavut, pohjarohkeus = 5, pohjakatse = 2):
+        super().__init__(nimitavut, riemutavut, pohjarohkeus, pohjakatse)
 
 ### Kirjoita luokka Sankari tähän.
 class Sankari(Olento):
-    def __init__(self, nimi, rohkeus1 = 5, rohkeus2 = 9, katseen_voima1 = 2, katseen_voima = 5):
-        self.nimi = nimi
-        super().__init__(rohkeus1, rohkeus2, katseen_voima1, katseen_voima)
+    """:ivar nimi: sankarin nimi, arvotaan
+    :type nimi: str
+    :ivar rohkeus: sankarin rohkeus, arvotaan
+    :type rohkeus: int
+    :ivar katseen_voima: sankarin katseen voimakkuus, arvotaan
+    :type katseen_voima: int
+    """
+    def __init__(self, nimi, pohjarohkeus = 5, pohjakatse = 3):
+        super().__init__(nimi, pohjarohkeus, pohjakatse)
 
 
     def arvo_hurraus(self):
