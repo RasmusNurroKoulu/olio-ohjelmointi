@@ -1,6 +1,5 @@
 class Laskija:
     """Luokka, joka toteuttaa eri laskutoimituksia.
-
     Julkiset metodit:
         summaa(Union[int, float], Union[int, float])
         kerro(Union[int, float], Union[int, float])
@@ -8,7 +7,6 @@ class Laskija:
 
     def summaa(self, a, b):
         """Palauttaa kahden luvun summan.
-
         :param a: summan ensimmäinen luku
         :type a: Union[int, float]
         :param b: summan toinen luku
@@ -20,7 +18,6 @@ class Laskija:
 
     def kerro(self, a, b):
         """Palauttaa kahden luvun tulon.
-
         :param a: tulon ensimmäinen luku
         :type a: Union[int, float]
         :param b: tulon toinen luku
@@ -36,7 +33,32 @@ class Laskija:
 
 ### Lisää MonenLaskija ja argumenttien_tulostaja tähän.
 
-class Monenlaskija(Laskija):
+class MonenLaskija(Laskija):
+    """Luokka, joka toteuttaa eri laskutoimituksia mille tahansa määrälle.
+    Julkiset metodit:
+        summaa(Union[int, float], Union[int, float])
+        kerro(Union[int, float], Union[int, float])
+    """
+    def summaa(self, *luvut):
+        """Palauttaa annettujen luvun summan.
+        :param luvut: summattavat luvut
+        :type luvut: Union[list[Union[int, float]]]
+        :return: lukujen summa
+        :rtype: Union[int, float]
+        """
+        return sum(luvut)
+    
+    def kerro(self, *luvut):
+        """Palauttaa annettujen luvun tulon.
+        :param luvut: tulon ensimmäinen luku
+        :type luvut: Union[listUnion[int, float]]]
+        :return: lukujen tulo
+        :rtype: Union[int, float]
+        """
+        tulo = 1
+        for luku in luvut:
+            tulo *= luku
+        return tulo
 
 
 ### Seuraavat rivit tekevät tarkistustulostukset. Älä koske niihin.
