@@ -60,6 +60,10 @@ class MonenLaskija(Laskija):
             tulo *= luku
         return tulo
 
+class argumenttien_tulostaja(**purettavat):
+    """tulostaa annetut tiedot."""
+    for avainsana, arvo in purettavat.items():
+        print(f'Argumentin "{avainsana}" arvo on {arvo}.')
 
 ### Seuraavat rivit tekevät tarkistustulostukset. Älä koske niihin.
 
