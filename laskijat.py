@@ -51,7 +51,7 @@ class MonenLaskija(Laskija):
     def kerro(self, *luvut):
         """Palauttaa annettujen luvun tulon.
         :param luvut: tulon ensimmäinen luku
-        :type luvut: Union[listUnion[int, float]]]
+        :type luvut: Union[list[Union[int, float]]]
         :return: lukujen tulo
         :rtype: Union[int, float]
         """
