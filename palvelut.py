@@ -73,16 +73,6 @@ class Asiakas:
     def get_nro(self):
         return print(self._asiakasnro)
 
-s = Asiakas('Tero', '15')
-s.get_nimi()
-s.set_nimi('Santeri')
-s.get_nimi()
-s.get_ika()
-s.set_ika('51')
-s.get_ika()
-s.get_nro()
-
-
 class Palvelu(Asiakas):
     """Luokka, millä voit muokata asiakkaita 
     
@@ -101,16 +91,21 @@ class Palvelu(Asiakas):
         :type _asiakkaat: Union[int, float]
         """
         self.tuotenimi = tuotenimi
-        self._asiakkaat = Asiakas()
+        self._asiakkaat = []
 
     def __luo_asiakasrivi(_asiakkaat):
         pass
 
-    def lisaa_asiakas(_asiakkaat):
+    def lisaa_asiakas(self):
+        """Lisää asiakkaat listaan
+
+        :param _asiakkaat: hakee asiakkaat
+        :type _asiakkaat: Union[int, float]
+        """
         try:
-            _asiakkaat += '2'
+            self._asiakkaat.append(Asiakas(input('Anna nimi: '), int(input('Anna ikä: '))))
         except ValueError:
-            print("Anna asiakas")
+            print("Anna kunnon tiedot")
 
     def tulosta_asiakkaat():
         pass
