@@ -7,6 +7,27 @@ class Asiakas:
     """
 
     def _luo_nro(self):
+        """Luo asiakkaan numeron.
+
+        :param n1: antaa 1 numeron
+        :type n1: int
+        :param n2: antaa 2 numeron
+        :type n2: int
+        :param n3: antaa 3 numeron
+        :type n3: int
+        :param n4: antaa 4 numeron
+        :type n4: int
+        :param n5: antaa 5 numeron
+        :type n5: int
+        :param n6: antaa 6 numeron
+        :type n6: int
+        :param n7: antaa 7 numeron
+        :type n7: int
+        :param n8: antaa 8 numeron
+        :type n8: int
+        :return: koko numero
+        :rtype str
+        """
         n1 = random.randint(0, 9)
         n2 = random.randint(0, 9)
         n3 = random.randint(0, 9)
