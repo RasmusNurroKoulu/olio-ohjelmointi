@@ -13,13 +13,13 @@ class Asiakas:
         :param _ika: antaa iän
         :type _ika: int
         """
-        self._nimi = nimi
-        self._ika = ika
+        self._nimi = nimi, str
+        self._ika = ika, int
         self._asiakasnro = 2
 
     def get_nimi(self):
         try: 
-            self._nimi
+            return print(self._nimi)
         except NameError:
             print("Suosittelen antamaan uuden nimen")
 
@@ -28,7 +28,7 @@ class Asiakas:
 
     def get_ika(self):
         try:
-            return self._ika
+            return print(self._ika)
         except ValueError:
             print("Kehotan antamaan uuden nimen ja iän")
 
@@ -38,6 +38,15 @@ class Asiakas:
 
     def _luo_nro():
         pass
+
+s = Asiakas('Tero', '15')
+s.get_nimi()
+s.set_nimi('Santeri')
+s.get_nimi()
+s.get_ika()
+s.set_ika('51')
+s.get_ika()
+
 
 class Palvelu(Asiakas):
     """Luokka, millä voit muokata asiakkaita 
@@ -63,7 +72,10 @@ class Palvelu(Asiakas):
         pass
 
     def lisaa_asiakas(_asiakkaat):
-        pass
+        try:
+            
+        except ValueError:
+            print("Anna asiakas")
 
     def tulosta_asiakkaat():
         pass
