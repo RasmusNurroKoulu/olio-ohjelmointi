@@ -1,3 +1,5 @@
+import random
+
 class Asiakas:
     """Luokka, joka antaa asiakkaalle nimen, numeron, iän ja luo numeron
     
@@ -15,7 +17,7 @@ class Asiakas:
         """
         self._nimi = nimi, str
         self._ika = ika, int
-        self._asiakasnro = 2
+        self._asiakasnro = _luo_nro()
 
     def get_nimi(self):
         try: 
@@ -36,8 +38,19 @@ class Asiakas:
         self._ika = ika
 
 
-    def _luo_nro():
-        pass
+    def _luo_nro(self):
+        n1 = random.randint(0, 9)
+        n2 = random.randint(0, 9)
+        n3 = random.randint(0, 9)
+        n4 = random.randint(0, 9)
+        n5 = random.randint(0, 9)
+        n6 = random.randint(0, 9)
+        n7 = random.randint(0, 9)
+        n8 = random.randint(0, 9)
+        self._asiakasnro = f'{n1, n2} - {n3, n4, n5} - {n6, n7, n8}'   
+
+    def get_nro(self):
+        return print(self._asiakasnro)
 
 s = Asiakas('Tero', '15')
 s.get_nimi()
@@ -46,6 +59,8 @@ s.get_nimi()
 s.get_ika()
 s.set_ika('51')
 s.get_ika()
+s.get_nro()
+s.get_nro()
 
 
 class Palvelu(Asiakas):
@@ -73,7 +88,7 @@ class Palvelu(Asiakas):
 
     def lisaa_asiakas(_asiakkaat):
         try:
-            
+            _asiakkaat += '2'
         except ValueError:
             print("Anna asiakas")
 
