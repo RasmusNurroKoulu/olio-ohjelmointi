@@ -91,7 +91,7 @@ class Palvelu(Asiakas):
         :type _asiakkaat: Union[int, float]
         """
         self.tuotenimi = tuotenimi
-        self._asiakkaat = []
+        self._asiakkaat = [Asiakas()]
 
     def __luo_asiakasrivi(_asiakkaat):
         pass
@@ -107,8 +107,15 @@ class Palvelu(Asiakas):
         except ValueError:
             print("Anna kunnon tiedot")
 
+    def poista_asiakas(_asiakkaat):
+        try:
+            _asiakkaat.remove(input("Mitä poistetaan: "))
+        except ValueError:
+            pass
+
     def tulosta_asiakkaat():
         pass
+
 
 class ParempiPalvelu(Palvelu):
     """Luokka, mikä on parempi palvelu, kun normaali 
