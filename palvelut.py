@@ -49,5 +49,21 @@ class Palvelu(Asiakas):
         pass
 
 class ParempiPalvelu(Palvelu):
+    """Luokka, mikä on parempi palvelu, kun normaali 
+    
+    Julkiset methodit:
+        lisaa_etu(),
+        poista_etu(),
+        tulosta_edut()
+    """
     def __init__(self):
         self._edut = [str]
+    
+    def lisaa_etu(edut):
+        pass
+    
+    def poista_etu(edut):
+        pass
+    
+    def tulosta_edut(edut):
+        pass
