@@ -58,8 +58,12 @@ class Asiakas:
         except NameError:
             print("Suosittelen antamaan uuden nimen")
 
-    def set_nimi(self, uusi_ika):
-        self._nimi = uusi_ika
+    def set_nimi(self, uusi_nimi):
+        try:
+            if uusi_nimi != "":
+                self._nimi = uusi_nimi
+        except ValueError:
+            print("Anna uusi nimi")
 
     def get_ika(self):
         try:
@@ -67,8 +71,12 @@ class Asiakas:
         except ValueError:
             print("Kehotan antamaan uuden nimen ja iän")
 
-    def set_ika(self, ika):
-        self._ika = ika
+    def set_ika(self, uusi_ika):
+        try:
+            if uusi_ika != "":
+                self._ika = uusi_ika
+        except ValueError:
+            print("Anna kunnon ikä")
 
     def get_nro(self):
         return print(self._asiakasnro)
@@ -94,16 +102,17 @@ class Palvelu(Asiakas):
         self._asiakkaat = []
 
     def __luo_asiakasrivi(_asiakkaat):
-        return()
+        return print (f'{asiakas.get_nimi()} on asiakkaamme')
 
-    def lisaa_asiakas(self, nimi, ika):
+    def lisaa_asiakas(self, nimi, ika = 0):
         """Lisää asiakkaat listaan
 
         :param _asiakkaat: hakee asiakkaat
         :type _asiakkaat: Union[int, float]
         """
         try:
-            self._asiakkaat.append(Asiakas(nimi, ika))
+            if nimi and ika != "":
+                self._asiakkaat.append(Asiakas(nimi, ika))
         except ValueError:
             print("Anna kunnon tiedot")
 
@@ -133,6 +142,7 @@ class ParempiPalvelu(Palvelu):
         :type _edut: str
         """
         self._edut = [tuotenimi]
+        self._asiakkat = Palvelu()
     
     def lisaa_etu(self, _etu):
         """Lisää etu listaan
