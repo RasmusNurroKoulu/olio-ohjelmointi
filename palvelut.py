@@ -91,30 +91,31 @@ class Palvelu(Asiakas):
         :type _asiakkaat: Union[int, float]
         """
         self.tuotenimi = tuotenimi
-        self._asiakkaat = [Asiakas()]
+        self._asiakkaat = []
 
     def __luo_asiakasrivi(_asiakkaat):
-        pass
+        return()
 
-    def lisaa_asiakas(self):
+    def lisaa_asiakas(self, nimi, ika):
         """Lisää asiakkaat listaan
 
         :param _asiakkaat: hakee asiakkaat
         :type _asiakkaat: Union[int, float]
         """
         try:
-            self._asiakkaat.append(Asiakas(input('Anna nimi: '), int(input('Anna ikä: '))))
+            self._asiakkaat.append(Asiakas(nimi, ika))
         except ValueError:
             print("Anna kunnon tiedot")
 
-    def poista_asiakas(_asiakkaat):
+    def poista_asiakas(_asiakkaat, poistettava):
         try:
-            _asiakkaat.remove(input("Mitä poistetaan: "))
+            _asiakkaat.remove(poistettava)
         except ValueError:
             pass
 
-    def tulosta_asiakkaat():
-        pass
+    def tulosta_asiakkaat(self):
+        for x in range(len(self._asiakkaat)):
+            print(self._asiakkaat[x])
 
 
 class ParempiPalvelu(Palvelu):
@@ -133,11 +134,24 @@ class ParempiPalvelu(Palvelu):
         """
         self._edut = [tuotenimi]
     
-    def lisaa_etu(edut):
-        pass
+    def lisaa_etu(self, _etu):
+        """Lisää etu listaan
+
+        :param _edut: hakee asiakkaat
+        :type _edut: Union[int, float]
+        """
+        try:
+            self._edut.append(_etu)
+        except ValueError:
+            print("Anna kunnon tiedot")
+
     
-    def poista_etu(edut):
-        pass
-    
-    def tulosta_edut(edut):
-        pass
+    def poista_etu(_edut):
+        try:
+            _edut.remove(input("Mitä poistetaan: "))
+        except ValueError:
+            pass
+
+    def tulosta_edut(self):
+        for x in range(len(self._edut)):
+            print(self._edut[x])
