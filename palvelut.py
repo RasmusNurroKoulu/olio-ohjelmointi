@@ -53,12 +53,20 @@ class Asiakas:
         self._asiakasnro = self._luo_nro()
 
     def get_nimi(self):
+        """Palauttaa nimen.
+        :return: asiakkaan nimi
+        :rtype: str
+        """
         try: 
             return print(self._nimi)
         except NameError:
             print("Suosittelen antamaan uuden nimen")
 
     def set_nimi(self, uusi_nimi):
+        """Asettaa uuden nimen.
+        :param nimi: antaa nimen
+        :type nimi: str
+        """
         try:
             if uusi_nimi != "":
                 self._nimi = uusi_nimi
@@ -66,12 +74,22 @@ class Asiakas:
             print("Anna uusi nimi")
 
     def get_ika(self):
+        """Palauttaa iän.
+        :return: asiakkaan ikä
+        :rtype: int
+        """
         try:
             return print(self._ika)
         except ValueError:
             print("Kehotan antamaan uuden nimen ja iän")
 
     def set_ika(self, uusi_ika):
+        """Asettaa uuden iän.
+        :param _ika: antaa iän
+        :type _ika: int
+        :param uusi_ika: uusi ikä
+        :type uusi_ika: int
+        """
         try:
             if uusi_ika != "":
                 self._ika = uusi_ika
@@ -79,6 +97,10 @@ class Asiakas:
             print("Anna kunnon ikä")
 
     def get_nro(self):
+        """Palauttaa asiakkaan numeron.
+        :return: asiakkaan numero
+        :rtype: str
+        """
         return print(self._asiakasnro)
 
 class Palvelu(Asiakas):
@@ -102,7 +124,11 @@ class Palvelu(Asiakas):
         self._asiakkaat = []
 
     def __luo_asiakasrivi(_asiakkaat):
-        return print (f'{asiakas.get_nimi()} on asiakkaamme')
+        """Palauttaa asiakkaan.
+        :return: asiakkas
+        :rtype: str
+        """
+        return print (f'{_asiakkaat.get_nimi()} on asiakkaamme')
 
     def lisaa_asiakas(self, nimi, ika = 0):
         """Lisää asiakkaat listaan
@@ -117,6 +143,11 @@ class Palvelu(Asiakas):
             print("Anna kunnon tiedot")
 
     def poista_asiakas(_asiakkaat, poistettava):
+        """Poistaa asiakkaat listaan
+
+        :param _asiakkaat: hakee asiakkaat
+        :type _asiakkaat: Union[int, float]
+        """
         try:
             _asiakkaat.remove(poistettava)
         except ValueError:
@@ -157,11 +188,21 @@ class ParempiPalvelu(Palvelu):
 
     
     def poista_etu(_edut):
+        """Poistaa etu listaan
+
+        :param _edut: hakee asiakkaat
+        :type _edut: Union[int, float]
+        """
         try:
             _edut.remove(input("Mitä poistetaan: "))
         except ValueError:
             pass
 
     def tulosta_edut(self):
+        """Tulosta etu listan
+
+        :param _edut: hakee asiakkaat
+        :type _edut: Union[int, float]
+        """
         for x in range(len(self._edut)):
             print(self._edut[x])
