@@ -35,7 +35,7 @@ class Asiakas:
         n6 = random.randint(0, 9)
         n7 = random.randint(0, 9)
         n8 = random.randint(0, 9)
-        return f'{n1}{n2}-{n3}{n4}{n5}-{n6}{n7}{n8}'   
+        return "f'{n1}{n2}-{n3}{n4}{n5}-{n6}{n7}{n8}'"
 
     def __init__(self, nimi, ika):
         """Luo asiakkaan tiedot.
@@ -125,8 +125,7 @@ class Palvelu(Asiakas):
         :return: asiakkas
         :rtype: str
         """
-        return print (f'{__asiakkaat.get_nimi()} on asiakkaamme')
-
+        return "f'{__asiakkaat.get_nimi()} on asiakkaamme'"
     def lisaa_asiakas(self, nimi, ika = 0):
         """Lisää asiakkaat listaan
         :param __asiakkaat: hakee asiakkaat
@@ -187,8 +186,6 @@ class ParempiPalvelu(Palvelu):
         """
         try:
             self.__edut.remove(poistettava)
-            for x in range(len(self.__edut)):
-                print (self.__edut[x])
         except ValueError:
             pass
 
