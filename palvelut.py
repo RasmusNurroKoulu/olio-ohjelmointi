@@ -8,7 +8,6 @@ class Asiakas:
 
     def _luo_nro(self):
         """Luo asiakkaan numeron.
-
         :param n1: antaa 1 numeron
         :type n1: int
         :param n2: antaa 2 numeron
@@ -40,7 +39,6 @@ class Asiakas:
 
     def __init__(self, nimi, ika):
         """Luo asiakkaan tiedot.
-
         :param nimi: antaa nimen
         :type nimi: str
         :param _asiakasnro: antaa asiakas numeron
@@ -48,9 +46,9 @@ class Asiakas:
         :param _ika: antaa iän
         :type _ika: int
         """
-        self._nimi = nimi, str
-        self._ika = ika, int
-        self._asiakasnro = self._luo_nro()
+        self.__nimi = nimi, str
+        self.__ika = ika, int
+        self.__asiakasnro = self._luo_nro()
 
     def get_nimi(self):
         """Palauttaa nimen.
@@ -58,7 +56,7 @@ class Asiakas:
         :rtype: str
         """
         try: 
-            return print(self._nimi)
+            return self.__nimi
         except NameError:
             print("Suosittelen antamaan uuden nimen")
 
@@ -69,7 +67,7 @@ class Asiakas:
         """
         try:
             if uusi_nimi != "":
-                self._nimi = uusi_nimi
+                self.__nimi = uusi_nimi
         except ValueError:
             print("Anna uusi nimi")
 
@@ -79,7 +77,7 @@ class Asiakas:
         :rtype: int
         """
         try:
-            return print(self._ika)
+            return self.__ika
         except ValueError:
             print("Kehotan antamaan uuden nimen ja iän")
 
@@ -92,7 +90,7 @@ class Asiakas:
         """
         try:
             if uusi_ika != "":
-                self._ika = uusi_ika
+                self.__ika = uusi_ika
         except ValueError:
             print("Anna kunnon ikä")
 
@@ -101,7 +99,7 @@ class Asiakas:
         :return: asiakkaan numero
         :rtype: str
         """
-        return print(self._asiakasnro)
+        return self.__asiakasnro
 
 class Palvelu(Asiakas):
     """Luokka, millä voit muokata asiakkaita 
@@ -112,50 +110,47 @@ class Palvelu(Asiakas):
     """
     def __init__(self, tuotenimi):
         """Luo tuotenimen ja hakee asiakkaat.
-
         :param tuotenimi: antaa tuotenimen
         :type tuotenimi: str
-        :param _asiakasnro: antaa asiakas numeron
-        :type _asiakasnro: int
-        :param _asiakkaat: hakee asiakkaat
-        :type _asiakkaat: Union[int, float]
+        :param __asiakkaat: antaa asiakas numeron
+        :type __asiakkaat: int
+        :param __asiakkaat: hakee asiakkaat
+        :type __asiakkaat: Union[int, float]
         """
         self.tuotenimi = tuotenimi
-        self._asiakkaat = []
+        self.__asiakkaat = []
 
-    def __luo_asiakasrivi(_asiakkaat):
+    def _luo_asiakasrivi(__asiakkaat):
         """Palauttaa asiakkaan.
         :return: asiakkas
         :rtype: str
         """
-        return print (f'{_asiakkaat.get_nimi()} on asiakkaamme')
+        return print (f'{__asiakkaat.get_nimi()} on asiakkaamme')
 
     def lisaa_asiakas(self, nimi, ika = 0):
         """Lisää asiakkaat listaan
-
-        :param _asiakkaat: hakee asiakkaat
-        :type _asiakkaat: Union[int, float]
+        :param __asiakkaat: hakee asiakkaat
+        :type __asiakkaat: Union[int, float]
         """
         try:
             if nimi and ika != "":
-                self._asiakkaat.append(Asiakas(nimi, ika))
+                self.__asiakkaat.append(Asiakas(nimi, ika))
         except ValueError:
             print("Anna kunnon tiedot")
 
-    def poista_asiakas(_asiakkaat, poistettava):
+    def poista_asiakas(__asiakkaat, poistettava):
         """Poistaa asiakkaat listaan
-
-        :param _asiakkaat: hakee asiakkaat
-        :type _asiakkaat: Union[int, float]
+        :param __asiakkaat: hakee asiakkaat
+        :type __asiakkaat: Union[int, float]
         """
         try:
-            _asiakkaat.remove(poistettava)
+            __asiakkaat.remove(poistettava)
         except ValueError:
             pass
 
     def tulosta_asiakkaat(self):
-        for x in range(len(self._asiakkaat)):
-            print(self._asiakkaat[x])
+        for x in range(len(self.__asiakkaat)):
+            print(self.__asiakkaat[x])
 
 
 class ParempiPalvelu(Palvelu):
@@ -168,41 +163,39 @@ class ParempiPalvelu(Palvelu):
     """
     def __init__(self, tuotenimi):
         """Ottaa edut tuotteesta
-
-        :param _edut: asettaa edut tuotenimi listaksi
-        :type _edut: str
+        :param __edut: asettaa edut tuotenimi listaksi
+        :type __edut: str
         """
-        self._edut = [tuotenimi]
-        self._asiakkat = Palvelu()
+        super().__init__(tuotenimi)
+        self.__edut = [tuotenimi]
     
     def lisaa_etu(self, _etu):
         """Lisää etu listaan
-
-        :param _edut: hakee asiakkaat
-        :type _edut: Union[int, float]
+        :param __edut: hakee asiakkaat
+        :type __edut: Union[int, float]
         """
         try:
-            self._edut.append(_etu)
+            self.__edut.append(_etu)
         except ValueError:
             print("Anna kunnon tiedot")
 
     
-    def poista_etu(_edut):
+    def poista_etu(self, poistettava):
         """Poistaa etu listaan
-
-        :param _edut: hakee asiakkaat
-        :type _edut: Union[int, float]
+        :param __edut: hakee asiakkaat
+        :type __edut: Union[int, float]
         """
         try:
-            _edut.remove(input("Mitä poistetaan: "))
+            self.__edut.remove(poistettava)
+            for x in range(len(self.__edut)):
+                print (self.__edut[x])
         except ValueError:
             pass
 
     def tulosta_edut(self):
         """Tulosta etu listan
-
-        :param _edut: hakee asiakkaat
-        :type _edut: Union[int, float]
+        :param __edut: hakee asiakkaat
+        :type __edut: Union[int, float]
         """
-        for x in range(len(self._edut)):
-            print(self._edut[x])
+        for x in range(len(self.__edut)):
+            print(self.__edut[x])
